@@ -1,6 +1,6 @@
 import { ROUTES } from "../../../core/routes/routes";
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import InventoryIcon from '@mui/icons-material/Inventory';
 
 export const sidebarList: Array<{
         text: string,
@@ -9,12 +9,12 @@ export const sidebarList: Array<{
 }> = [
     {
         text: 'Packages',
-        icon: <MonetizationOnOutlinedIcon />,
+        icon: <InventoryIcon />,
         path: ROUTES.PACKAGES
     },
     {
         text: 'Profile',
-        icon: <AccountCircleOutlinedIcon />,
+        icon: <AccountCircleIcon />,
         path: ROUTES.PROFILE
     }
 ]

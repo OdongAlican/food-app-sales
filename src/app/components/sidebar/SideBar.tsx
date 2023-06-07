@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { sidebarList } from './SibeBarList';
 import { useLocation, useNavigate } from 'react-router';
+import { lightBlue } from '@mui/material/colors';
 
 const SideBar = () => {
     const navigate = useNavigate();
@@ -17,10 +18,10 @@ const SideBar = () => {
             <List>
                 {sidebarList.map((item) => (
                     <ListItem
-                        sx={(theme) => ({
-                            bgcolor: `${pathname.includes(item.path) ? theme.palette.grey[200] : ''
+                        sx={{
+                            bgcolor: `${pathname.includes(item.path) ? lightBlue[50] : ''
                                 }`
-                        })}
+                        }}
                         key={item.path} disablePadding>
                         <ListItemButton onClick={() => navigate(item.path)}>
                             <ListItemIcon>

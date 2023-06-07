@@ -75,7 +75,7 @@ const Packages = () => {
                                         <Box>
                                             <Button
                                                 onClick={() => onPurchase(item)}
-                                                color="primary" >Make Payment</Button>
+                                                variant="contained" >Make Payment</Button>
                                         </Box>
                                     </Grid>
                                 </Grid>
