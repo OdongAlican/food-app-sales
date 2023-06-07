@@ -28,9 +28,11 @@ import { Link } from 'react-router-dom';
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
     const [loggingIn, setLoggingIn] = useState<boolean>(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleClickshowConfirmPassword = () => setShowConfirmPassword((show) => !show);
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
     };
@@ -161,17 +163,17 @@ const Register = () => {
                                                         onBlur={onBlur}
                                                         onChange={onChange}
                                                         error={Boolean(errors.confirmPassword)}
-                                                        type={showPassword ? 'text' : 'password'}
+                                                        type={showConfirmPassword ? 'text' : 'password'}
                                                         InputProps={{
                                                             endAdornment: (
                                                                 <InputAdornment position="end">
                                                                     <IconButton
                                                                         aria-label="toggle password visibility"
-                                                                        onClick={handleClickShowPassword}
+                                                                        onClick={handleClickshowConfirmPassword}
                                                                         onMouseDown={handleMouseDownPassword}
                                                                         edge="end"
                                                                     >
-                                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                                        {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                                                                     </IconButton>
                                                                 </InputAdornment>
                                                             ),
