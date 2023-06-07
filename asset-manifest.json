@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/food-app-sales/static/css/main.bc1dca3e.css",
+    "main.js": "/food-app-sales/static/js/main.4dd42cba.js",
+    "static/media/company.png": "/food-app-sales/static/media/company.a333847d3cf74d404bab.png",
+    "index.html": "/food-app-sales/index.html",
+    "main.bc1dca3e.css.map": "/food-app-sales/static/css/main.bc1dca3e.css.map",
+    "main.4dd42cba.js.map": "/food-app-sales/static/js/main.4dd42cba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc1dca3e.css",
+    "static/js/main.4dd42cba.js"
+  ]
+}
