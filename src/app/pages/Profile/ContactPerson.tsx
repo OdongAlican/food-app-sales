@@ -40,7 +40,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
             <Grid item xs={12}>
                 <Typography>Vendor Information</Typography>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -63,7 +63,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -86,7 +86,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -109,7 +109,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -132,7 +132,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -155,7 +155,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -178,7 +178,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                     <Controller
                         control={control}
@@ -201,7 +201,7 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={12}>
                 <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Gender</InputLabel>
                     <Controller
