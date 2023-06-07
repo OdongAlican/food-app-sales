@@ -26,10 +26,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../core/routes/routes';
 import { usersList } from '../../../mocks';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { usersLoaded } from './user_slice';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
 
@@ -56,6 +59,7 @@ const Login = () => {
       if (user.password === formData.password) {
         navigate(ROUTES.DASHBOARD)
         toast.success(`Welcome ${user.firstName}`);
+        dispatch(usersLoaded({ user }) as any)
         return
       }
       toast.error('Invalid User Credentials');
