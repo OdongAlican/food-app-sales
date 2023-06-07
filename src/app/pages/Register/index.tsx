@@ -14,7 +14,7 @@ import {
     useForm,
     Controller
 } from 'react-hook-form';
-import { BootstrapInput } from '../../components/Input';
+import { BootstrapInput } from '../../components/input/Input';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { IRegister } from './interface';
@@ -22,14 +22,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import companyLogo from '../../../src/img/company.png'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../core/routes/routes';
 
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
     const [loggingIn, setLoggingIn] = useState<boolean>(false);
+
+    const navigate = useNavigate();
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleClickshowConfirmPassword = () => setShowConfirmPassword((show) => !show);
@@ -48,8 +50,7 @@ const Register = () => {
 
     const onSubmit = (formData: IRegister) => {
         setLoggingIn(true)
-        console.log(formData, 'Form data');
-        // navigate(`${ROUTES.SCHOOL}/${ROUTES.CANTEEN}`)
+        navigate(ROUTES.DASHBOARD)
     }
 
     return (
@@ -209,7 +210,7 @@ const Register = () => {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <Typography sx={{ fontSize: '14px', textAlign: 'center' }}>
-                                            Already have an account, Sign In <Link style={{ textDecoration: 'none', color: 'blue' }} to='#'> here</Link>
+                                            Already have an account, Sign In <Link style={{ textDecoration: 'none', color: 'blue' }} to={ROUTES.LOGIN}> here</Link>
                                         </Typography>
                                     </Grid>
                                 </Grid>

@@ -14,7 +14,7 @@ import {
   useForm,
   Controller
 } from 'react-hook-form';
-import { BootstrapInput } from '../../components/Input';
+import { BootstrapInput } from '../../components/input/Input';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { ILogin } from './interface';
@@ -22,12 +22,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import companyLogo from '../../../src/img/company.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../core/routes/routes';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -45,8 +47,7 @@ const Login = () => {
 
   const onSubmit = (formData: ILogin) => {
     setLoggingIn(true)
-    console.log(formData, 'Form data');
-    // navigate(`${ROUTES.SCHOOL}/${ROUTES.CANTEEN}`)
+    navigate(ROUTES.DASHBOARD)
   }
 
 
