@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import {
   Box,
@@ -14,9 +13,10 @@ import SideBar from '../../components/sidebar/SideBar';
 import NavBar from '../../components/navbar/NavBar';
 import { StyledDrawer } from '../../components/styled/StyledDrawer';
 import MenuIcon from '@mui/icons-material/Menu';
+import { styled, Theme, CSSObject } from '@mui/material/styles';
+
 
 const drawerWidth = 240;
-
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -57,7 +57,7 @@ export default function Dashboard() {
       <CssBaseline />
       <AppBar position="fixed" sx={(theme) => ({ bgcolor: theme.palette.background.paper })}>
         <Toolbar>
-        <IconButton
+          <IconButton
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -79,32 +79,47 @@ export default function Dashboard() {
           <NavBar />
         </Toolbar>
       </AppBar>
-      <StyledDrawer
-        variant="temporary"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
-        drawerWidth={drawerWidth}
+      <Box
+        component="nav"
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.paper,
+          width: { sm: drawerWidth }, flexShrink: { sm: 0 }
+        })}
+        aria-label="mailbox folders"
       >
-        <DrawerHeader />
-        <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
-          <SideBar />
-        </Box>
-      </StyledDrawer>
-      <StyledDrawer
-        variant="permanent"
-        drawerWidth={drawerWidth}
-        open
-      >
-        <DrawerHeader />
-        <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
-          <SideBar />
-        </Box>
-      </StyledDrawer>
+        <StyledDrawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{ keepMounted: true }}
+          drawerWidth={drawerWidth}
+        >
+          <DrawerHeader />
+          <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
+            <SideBar />
+          </Box>
+        </StyledDrawer>
+
+        <StyledDrawer
+          aria-label="mailbox folders"
+          variant="permanent"
+          drawerWidth={drawerWidth}
+          open
+        >
+          <DrawerHeader />
+          <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
+            <SideBar />
+          </Box>
+        </StyledDrawer>
+      </Box>
       <Box
         component="main"
-        sx={(theme) => ({ flexGrow: 1, height: '100vh', bgcolor: theme.palette.grey[50] })}>
-        <DrawerHeader />
+        sx={(theme) => ({
+          flexGrow: 1,
+          height: '100vh',
+          bgcolor: theme.palette.grey[500]
+        })}>
+        <Toolbar />
         <Outlet />
       </Box>
     </Box>
