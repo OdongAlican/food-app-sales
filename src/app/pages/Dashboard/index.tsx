@@ -6,12 +6,15 @@ import {
   Toolbar,
   CssBaseline,
   Typography,
+  IconButton,
 } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import companyLogo from '../../../src/img/company.png'
 import { Outlet } from 'react-router';
 import SideBar from '../../components/sidebar/SideBar';
 import NavBar from '../../components/navbar/NavBar';
+import { StyledDrawer } from '../../components/styled/StyledDrawer';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 
@@ -85,11 +88,23 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Dashboard() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => { setMobileOpen(!mobileOpen); };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" sx={(theme) => ({ bgcolor: theme.palette.background.paper })}>
         <Toolbar>
+        <IconButton
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Box
             src={companyLogo}
             sx={{ height: '40px', mr: '20px' }}
@@ -104,18 +119,28 @@ export default function Dashboard() {
           <NavBar />
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        open={true}
-        sx={{
-          '& .MuiDrawer-paper': { boxShadow: 1 },
-        }}
+      <StyledDrawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        drawerWidth={drawerWidth}
       >
         <DrawerHeader />
         <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
           <SideBar />
         </Box>
-      </Drawer>
+      </StyledDrawer>
+      <StyledDrawer
+        variant="permanent"
+        drawerWidth={drawerWidth}
+        open
+      >
+        <DrawerHeader />
+        <Box p={1} sx={(theme) => ({ height: '100%', bgcolor: theme.palette.grey[50] })}>
+          <SideBar />
+        </Box>
+      </StyledDrawer>
       <Box
         component="main"
         sx={(theme) => ({ flexGrow: 1, height: '100vh', bgcolor: theme.palette.grey[50] })}>
