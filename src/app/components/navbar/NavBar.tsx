@@ -5,7 +5,6 @@ import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
 import { StyledNavTypography } from '../styled/NavTypography';
 
 const NavBar = () => {
@@ -16,9 +15,9 @@ const NavBar = () => {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ bgcolor: 'cyan' }}>
+        <Container maxWidth="xl">
             <Toolbar disableGutters>
-                <Box sx={{ flexGrow: 0 }}>
+                <Box sx={{ flexGrow: 0, marginLeft: 'auto' }}>
                     <Tooltip title="Open settings">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                             <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
