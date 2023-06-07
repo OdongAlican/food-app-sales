@@ -1,19 +1,16 @@
 import {
-    Divider,
     List,
     ListItem,
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Toolbar
+    Box
 } from '@mui/material';
 import { sidebarList } from './SibeBarList';
 
 const SideBar = () => {
     return (
-        <div>
-            <Toolbar />
-            <Divider />
+        <Box>
             <List>
                 {sidebarList.map((item) => (
                     <ListItem key={item.path} disablePadding>
@@ -26,7 +23,7 @@ const SideBar = () => {
                     </ListItem>
                 ))}
             </List>
-        </div>
+        </Box>
     );
 }
 
