@@ -57,9 +57,6 @@ const Packages = () => {
                 ) : null
             }
             <Grid container xs={12} spacing={3}>
-                <Grid item xs={12} >
-                    <Typography>Packages</Typography>
-                </Grid>
                 {
                     packageList.map((item) => (
                         <Grid item xs={12} >
