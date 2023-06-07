@@ -24,6 +24,8 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import companyLogo from '../../../src/img/company.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../core/routes/routes';
+import { usersList } from '../../../mocks';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -46,8 +48,23 @@ const Login = () => {
   });
 
   const onSubmit = (formData: ILogin) => {
-    setLoggingIn(true)
-    navigate(ROUTES.DASHBOARD)
+    setLoggingIn(true);
+
+    const user = usersList.find(person => formData.email === person.email);
+
+    if (user) {
+      if (user.password === formData.password) {
+        navigate(ROUTES.DASHBOARD)
+        toast.success(`Welcome ${user.firstName}`);
+        return
+      }
+      toast.error('Invalid User Credentials');
+      return
+    }
+    setTimeout(() => {
+      setLoggingIn(false);
+    }, 2000);
+    return toast.error('Invalid User Credentials')
   }
 
 
@@ -172,7 +189,7 @@ const Login = () => {
                   <Grid item xs={12}>
                     <Typography sx={{ fontSize: '14px', textAlign: 'center' }}>
                       Sign Up <Link style={{ textDecoration: 'none', color: 'blue' }} to={ROUTES.REGISTER}> here</Link>
-                      </Typography> 
+                    </Typography>
                   </Grid>
                 </Grid>
               </Grid>
