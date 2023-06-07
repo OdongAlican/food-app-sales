@@ -2,9 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Login Credentials
 
-In the project directory, you can run:
+email: `johndoe@gmail.com`
+password: `1234`
+
+email: `janedoe@gmail.com`
+password: `1234`
 
 ### `npm start`
 
