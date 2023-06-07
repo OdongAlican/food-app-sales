@@ -14,6 +14,7 @@ import NavBar from '../../components/navbar/NavBar';
 import { StyledDrawer } from '../../components/styled/StyledDrawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
+import { StyledNavTypography } from '../../components/styled/NavTypography';
 
 
 const drawerWidth = 240;
@@ -70,12 +71,12 @@ export default function Dashboard() {
             sx={{ height: '40px', width: '40px', mr: '20px', borderRadius: '50%' }}
             component='img'
           />
-          <Typography sx={(theme) => ({
+          <StyledNavTypography sx={(theme) => ({
             color: theme.palette.grey[800],
             fontSize: '15px', fontWeight: 'bold'
-          })} component="div">
+          })} >
             Food Sales
-          </Typography>
+          </StyledNavTypography>
           <NavBar />
         </Toolbar>
       </AppBar>
@@ -117,7 +118,7 @@ export default function Dashboard() {
         sx={(theme) => ({
           flexGrow: 1,
           height: '100vh',
-          bgcolor: theme.palette.grey[500]
+          bgcolor: theme.palette.grey[50]
         })}>
         <Toolbar />
         <Outlet />

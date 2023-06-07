@@ -10,9 +10,6 @@ const Wrapper = ({ children }: IWrapper) => {
         <Box
             padding={4}
             margin={3}
-            sx={(theme) => ({
-                bgcolor: theme.palette.background.paper,
-            })}
         >{children}</Box>
     )
 }
