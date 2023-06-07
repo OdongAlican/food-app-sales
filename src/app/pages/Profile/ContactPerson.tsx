@@ -5,6 +5,7 @@ import {
     Typography,
     Select,
     MenuItem,
+    InputLabel,
 } from '@mui/material';
 import {
     Controller,
@@ -202,16 +203,17 @@ const VendorInfo: React.FC<IFormProps> = ({ formState, control }: IFormProps) =>
             </Grid>
             <Grid item xs={4}>
                 <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Gender</InputLabel>
                     <Controller
                         control={control}
                         name='gender'
                         rules={{ required: true }}
-                        render={({ field: { onChange, onBlur } }) => (
+                        render={({ field: { onChange } }) => (
                             <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             size='small'
-                            label="gender"
+                            label="Gender"
                             onChange={onChange}
                           >
                             <MenuItem value='Female'>Female</MenuItem>
