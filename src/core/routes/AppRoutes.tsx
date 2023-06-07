@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
-import { ROUTES } from "./routes";
+import Login from "../../app/pages/Login";
 
 const AppRoutes = () => {
   return (
     <Routes>
-     
+      <Route index element={<Login />} />
     </Routes>
   )
 }
